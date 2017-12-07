@@ -18,6 +18,11 @@ module LanguageServer
         #     response
         #   end
         #
+        # TODO: This isn't always good enough.
+        # I think there are some cases where the server should notify
+        # the client, and there's not an initial request.
+        #
+        # So, we need some way to send notifications in this transport.
         def self.run_server(port, &message_handler)
           server = TCPServer.new(port)
           loop do
